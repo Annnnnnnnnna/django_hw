@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>電影評分系統</title>
+</head>
+<body>
+	<div style="font-size: larger; margin-bottom: 20px">
+            評分記錄查詢
+    </div>
+    <form  method="post" name="type_user">
+    	{% csrf_token %}
+    	<input name="user_id" placeholder="user_id"/>
+    	<input type="submit" />
+    	<table>
+                <tr>
+                    <th>
+                        movie_name
+                    </th>
+                    <th>
+                        rating
+                    </th>
+                </tr>
+                    {% for movie in movie_list %} 
+                       <tr>
+                           <td>
+                                {{movie.movie_name}} 
+                           </td>
+                           <td>
+                               {{movie.rating}} 
+                           </td>
+                       </tr>
+                    {% endfor %}
+            </table>
+    </form>
+
+</body>
+</html>
